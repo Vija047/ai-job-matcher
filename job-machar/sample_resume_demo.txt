@@ -1,0 +1,61 @@
+John Doe
+Software Engineer
+
+Contact Information:
+Email: john.doe@email.com
+Phone: (555) 123-4567
+Location: San Francisco, CA
+LinkedIn: linkedin.com/in/johndoe
+
+Professional Summary:
+Experienced Full Stack Developer with 5 years of experience in building scalable web applications. 
+Proficient in modern JavaScript frameworks, cloud technologies, and agile methodologies.
+
+Technical Skills:
+- Programming Languages: JavaScript, Python, TypeScript, Java
+- Frontend: React, Next.js, HTML5, CSS3, Tailwind CSS, Vue.js
+- Backend: Node.js, Express.js, Django, Flask
+- Databases: PostgreSQL, MongoDB, MySQL, Redis
+- Cloud & DevOps: AWS (EC2, S3, Lambda), Docker, Kubernetes, CI/CD
+- Tools: Git, VS Code, Jira, Slack, Figma
+
+Professional Experience:
+
+Senior Software Engineer | TechCorp Inc. | 2022 - Present
+- Led development of microservices architecture serving 1M+ users
+- Implemented automated testing reducing bugs by 40%
+- Mentored team of 3 junior developers
+- Technologies: React, Node.js, AWS, Docker
+
+Software Engineer | StartupXYZ | 2020 - 2022
+- Built responsive web applications using React and Redux
+- Developed RESTful APIs handling 10K+ requests daily
+- Optimized database queries improving performance by 60%
+- Technologies: JavaScript, Python, PostgreSQL, AWS
+
+Junior Developer | WebSolutions | 2019 - 2020
+- Created landing pages and e-commerce sites
+- Collaborated with design team on UI/UX improvements
+- Maintained legacy PHP applications
+- Technologies: HTML, CSS, JavaScript, PHP, MySQL
+
+Education:
+Bachelor of Science in Computer Science
+University of California, Berkeley | 2015 - 2019
+GPA: 3.7/4.0
+
+Certifications:
+- AWS Certified Solutions Architect - Associate
+- MongoDB Certified Developer
+
+Projects:
+- E-commerce Platform: Full-stack application with payment integration
+- Task Management App: React-based productivity tool with real-time collaboration
+- Weather Dashboard: API-driven weather application with data visualization
+
+Soft Skills:
+- Problem Solving
+- Team Leadership
+- Communication
+- Project Management
+- Agile/Scrum Methodologies

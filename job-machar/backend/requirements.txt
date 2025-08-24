@@ -1,0 +1,66 @@
+# Production AI Job Matcher Backend Requirements
+# Install these packages: pip install -r requirements.txt
+
+# Core Flask Framework
+flask==3.0.3
+flask-cors==4.0.1
+gunicorn==23.0.0
+
+# PDF Processing
+PyPDF2==3.0.1
+pdfplumber==0.11.2
+pymupdf==1.24.9
+
+# Authentication & Security
+pyjwt==2.8.0
+bcrypt==4.2.0
+redis==5.0.1
+
+# AI/ML Libraries
+transformers==4.45.2
+torch==2.1.2
+sentence-transformers==3.1.1
+datasets==3.0.0
+accelerate==0.25.0
+
+# NLP Processing
+spacy==3.7.6
+nltk==3.9.1
+textblob==0.18.0.post0
+
+# Data Science & Analysis
+scikit-learn==1.5.2
+pandas==2.2.3
+numpy==1.26.4
+
+# API Client & Web Scraping
+requests==2.32.3
+aiohttp==3.9.1
+beautifulsoup4==4.12.3
+lxml==5.3.0
+feedparser==6.0.11
+selenium==4.15.2
+
+# Configuration & Environment
+python-dotenv==1.0.1
+
+# Date/Time Utilities
+python-dateutil==2.8.2
+
+# Optional: Database (uncomment if using PostgreSQL)
+# psycopg2==2.9.9
+# sqlalchemy==2.0.23
+
+# Optional: Visualization (uncomment if needed)
+# matplotlib==3.9.2
+# seaborn==0.13.2
+
+# Development Dependencies (for testing)
+pytest==7.4.3
+pytest-asyncio==0.21.1
+
+# Download spaCy English model after installation:
+# python -m spacy download en_core_web_sm
+
+# NLTK data downloads (run after installation):
+# python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords'); nltk.download('averaged_perceptron_tagger')"

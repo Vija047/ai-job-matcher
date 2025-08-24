@@ -1,0 +1,37 @@
+John Doe
+Software Engineer
+Email: john.doe@email.com
+Phone: (555) 123-4567
+
+SUMMARY
+Experienced software engineer with 5+ years in web development, specializing in React, Node.js, and Python. Proven track record of delivering scalable applications and leading development teams.
+
+TECHNICAL SKILLS
+- Programming Languages: JavaScript, Python, TypeScript, Java
+- Frontend: React, Vue.js, HTML5, CSS3, Angular
+- Backend: Node.js, Express.js, Django, Flask
+- Databases: MongoDB, PostgreSQL, MySQL, Redis
+- Cloud: AWS, Azure, Docker, Kubernetes
+- Tools: Git, Jenkins, Webpack, Jest
+
+EXPERIENCE
+Senior Software Engineer | Tech Solutions Inc. | 2020 - Present
+- Led development of React-based web applications serving 100K+ users
+- Implemented microservices architecture reducing system downtime by 40%
+- Mentored junior developers and conducted code reviews
+- Collaborated with product teams to deliver features on time
+
+Software Engineer | StartupCorp | 2019 - 2020
+- Developed RESTful APIs using Node.js and Express
+- Built responsive web interfaces with React and CSS3
+- Integrated third-party payment systems and APIs
+- Participated in agile development processes
+
+EDUCATION
+Bachelor of Science in Computer Science
+University of Technology | 2015 - 2019
+
+CERTIFICATIONS
+- AWS Certified Solutions Architect
+- React Developer Certification
+- Scrum Master Certified

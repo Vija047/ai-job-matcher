@@ -1,0 +1,45 @@
+# Enhanced AI Job Matcher - Core Requirements
+# Essential packages for the backend functionality
+
+# Core Flask Framework
+flask==3.0.3
+flask-cors==4.0.1
+
+# PDF Processing (for resume parsing)
+PyPDF2==3.0.1
+pdfplumber==0.11.2
+pymupdf==1.24.9
+
+# AI/ML Libraries (Hugging Face ecosystem)
+transformers==4.45.2
+torch==2.1.2
+datasets==3.0.0
+accelerate==0.25.0
+
+# NLP Processing
+spacy==3.7.6
+nltk==3.9.1
+
+# Data Science & Analysis
+scikit-learn==1.5.2
+pandas==2.2.3
+numpy==1.26.4
+
+# API Client & Web Scraping (for real job data)
+requests==2.32.3
+aiohttp==3.9.1
+beautifulsoup4==4.12.3
+feedparser==6.0.11
+
+# Configuration & Environment
+python-dotenv==1.0.1
+
+# Date/Time Utilities
+python-dateutil==2.8.2
+
+# For production deployment
+gunicorn==23.0.0
+
+# Note: After installation, run these commands:
+# python -m spacy download en_core_web_sm
+# python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords'); nltk.download('averaged_perceptron_tagger')"

@@ -1,0 +1,802 @@
+"""
+Web Interface for Job Recommendations and Applications
+Provides HTML templates and JavaScript for frontend integration
+"""
+
+class JobRecommendationWebInterface:
+    """
+    Generates web interface components for job recommendations
+    """
+    
+    @staticmethod
+    def generate_job_card_html(job: dict) -> str:
+        """Generate HTML for a job recommendation card"""
+        
+        # Determine badge color based on compatibility score
+        score = job.get('compatibility_score', 0)
+        if score >= 0.8:
+            badge_class = "bg-success"
+            badge_text = "Excellent Match"
+        elif score >= 0.6:
+            badge_class = "bg-primary"
+            badge_text = "Strong Match"
+        elif score >= 0.4:
+            badge_class = "bg-warning"
+            badge_text = "Good Match"
+        else:
+            badge_class = "bg-secondary"
+            badge_text = "Potential Match"
+        
+        # Format salary
+        salary_min = job.get('salary_min', 0)
+        salary_max = job.get('salary_max', 0)
+        if salary_min and salary_max:
+            if job.get('employment_type') == 'Internship':
+                salary_text = f"${salary_min}-${salary_max}/hour"
+            else:
+                salary_text = f"${salary_min:,}-${salary_max:,}/year"
+        else:
+            salary_text = "Salary not specified"
+        
+        # Remote work indicator
+        remote_icon = "🌐" if job.get('remote_allowed') else "🏢"
+        
+        # Skills tags
+        skills_html = ""
+        for skill in job.get('skills', [])[:4]:  # Show first 4 skills
+            skills_html += f'<span class="badge bg-light text-dark me-1 mb-1">{skill}</span>'
+        
+        return f"""
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100 job-card" data-job-id="{job['id']}">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <span class="badge {badge_class}">{badge_text}</span>
+                    <span class="text-muted">{score:.0%} match</span>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{job['title']}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{job['company']}</h6>
+                    <p class="card-text">
+                        <i class="fas fa-map-marker-alt"></i> {remote_icon} {job['location']}<br>
+                        <i class="fas fa-dollar-sign"></i> {salary_text}<br>
+                        <i class="fas fa-clock"></i> {job['employment_type']}
+                    </p>
+                    <p class="card-text text-truncate" title="{job.get('description', '')[:100]}...">
+                        {job.get('description', '')[:100]}...
+                    </p>
+                    <div class="mb-2">
+                        {skills_html}
+                    </div>
+                    <div class="match-reason">
+                        <small class="text-muted">
+                            <i class="fas fa-lightbulb"></i> {job.get('match_reason', 'Good opportunity based on your profile')}
+                        </small>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="btn-group w-100" role="group">
+                        <button type="button" class="btn btn-primary btn-sm quick-apply-btn" 
+                                data-job-id="{job['id']}" data-job-title="{job['title']}">
+                            <i class="fas fa-rocket"></i> Quick Apply
+                        </button>
+                        <button type="button" class="btn btn-outline-primary btn-sm save-job-btn" 
+                                data-job-id="{job['id']}" data-job-title="{job['title']}">
+                            <i class="fas fa-bookmark"></i> Save
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm view-details-btn" 
+                                data-job-id="{job['id']}" data-toggle="modal" data-target="#jobDetailsModal">
+                            <i class="fas fa-eye"></i> Details
+                        </button>
+                    </div>
+                    <div class="mt-2">
+                        <small class="text-muted">
+                            <i class="fas fa-clock"></i> Quick apply: {job.get('apply_options', {}).get('quick_apply', {}).get('time_estimate', '5 minutes')}
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        """
+    
+    @staticmethod
+    def generate_job_search_form() -> str:
+        """Generate HTML for job search form"""
+        return """
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5><i class="fas fa-search"></i> Find Your Perfect Job</h5>
+            </div>
+            <div class="card-body">
+                <form id="jobSearchForm">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="userSkills" class="form-label">Your Skills</label>
+                            <input type="text" class="form-control" id="userSkills" 
+                                   placeholder="e.g., Python, React, Machine Learning" 
+                                   data-bs-toggle="tooltip" 
+                                   title="Enter your skills separated by commas">
+                            <div class="form-text">Separate skills with commas</div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="experienceLevel" class="form-label">Experience Level</label>
+                            <select class="form-select" id="experienceLevel">
+                                <option value="entry">Entry Level (0-2 years)</option>
+                                <option value="mid" selected>Mid Level (2-5 years)</option>
+                                <option value="senior">Senior Level (5+ years)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="jobType" class="form-label">Job Type</label>
+                            <select class="form-select" id="jobType">
+                                <option value="any">Any</option>
+                                <option value="full-time">Full Time</option>
+                                <option value="internship">Internship</option>
+                                <option value="contract">Contract</option>
+                                <option value="remote">Remote</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label for="location" class="form-label">Preferred Location</label>
+                            <input type="text" class="form-control" id="location" 
+                                   placeholder="e.g., San Francisco, Remote">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="minSalary" class="form-label">Minimum Salary</label>
+                            <input type="number" class="form-control" id="minSalary" 
+                                   placeholder="e.g., 80000">
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="remotePreference" class="form-label">Remote Work</label>
+                            <select class="form-select" id="remotePreference">
+                                <option value="no">No preference</option>
+                                <option value="yes">Prefer remote</option>
+                                <option value="only">Remote only</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-search"></i> Search Jobs
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary" id="clearFilters">
+                            <i class="fas fa-times"></i> Clear Filters
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        """
+    
+    @staticmethod
+    def generate_application_dashboard() -> str:
+        """Generate HTML for application dashboard"""
+        return """
+        <div class="row mb-4">
+            <div class="col-12">
+                <h3><i class="fas fa-tachometer-alt"></i> Application Dashboard</h3>
+            </div>
+        </div>
+        
+        <div class="row mb-4">
+            <div class="col-md-3 mb-3">
+                <div class="card bg-primary text-white">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h6 class="card-title">Total Applications</h6>
+                                <h3 id="totalApplications">0</h3>
+                            </div>
+                            <div>
+                                <i class="fas fa-file-alt fa-2x opacity-75"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="card bg-success text-white">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h6 class="card-title">This Week</h6>
+                                <h3 id="weekApplications">0</h3>
+                            </div>
+                            <div>
+                                <i class="fas fa-calendar-week fa-2x opacity-75"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="card bg-warning text-white">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h6 class="card-title">Pending</h6>
+                                <h3 id="pendingApplications">0</h3>
+                            </div>
+                            <div>
+                                <i class="fas fa-clock fa-2x opacity-75"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="card bg-info text-white">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <h6 class="card-title">Success Rate</h6>
+                                <h3 id="successRate">0%</h3>
+                            </div>
+                            <div>
+                                <i class="fas fa-chart-line fa-2x opacity-75"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-list"></i> Recent Applications</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Position</th>
+                                        <th>Company</th>
+                                        <th>Status</th>
+                                        <th>Applied Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="applicationsList">
+                                    <tr>
+                                        <td colspan="5" class="text-center text-muted">
+                                            No applications yet. Start by searching for jobs!
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-lightbulb"></i> Quick Tips</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled" id="insightsList">
+                            <li><i class="fas fa-check text-success"></i> Upload your resume for better matches</li>
+                            <li><i class="fas fa-check text-success"></i> Apply to 3-5 jobs per week</li>
+                            <li><i class="fas fa-check text-success"></i> Follow up after 1 week</li>
+                            <li><i class="fas fa-check text-success"></i> Customize cover letters</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <h5><i class="fas fa-calendar"></i> Upcoming Actions</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="upcomingActions">
+                            <p class="text-muted">No upcoming actions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        """
+    
+    @staticmethod
+    def generate_bulk_apply_modal() -> str:
+        """Generate HTML for bulk apply modal"""
+        return """
+        <div class="modal fade" id="bulkApplyModal" tabindex="-1" aria-labelledby="bulkApplyModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="bulkApplyModalLabel">
+                            <i class="fas fa-rocket"></i> Bulk Apply to Jobs
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle"></i>
+                            Apply to multiple positions quickly. You can apply to up to 5 jobs at once.
+                        </div>
+                        
+                        <div id="bulkApplyProgress" class="progress mb-3" style="display: none;">
+                            <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                        </div>
+                        
+                        <div id="selectedJobsList">
+                            <!-- Selected jobs will be populated here -->
+                        </div>
+                        
+                        <form id="bulkApplyForm">
+                            <div class="mb-3">
+                                <label for="bulkCoverLetter" class="form-label">Cover Letter Template</label>
+                                <textarea class="form-control" id="bulkCoverLetter" rows="6" 
+                                          placeholder="Your cover letter will be auto-generated and customized for each job..."></textarea>
+                                <div class="form-text">This template will be customized for each application</div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="bulkNotes" class="form-label">Application Notes</label>
+                                <textarea class="form-control" id="bulkNotes" rows="2" 
+                                          placeholder="Any additional notes for these applications..."></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" id="submitBulkApply">
+                            <i class="fas fa-paper-plane"></i> Submit Applications
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        """
+    
+    @staticmethod
+    def generate_job_details_modal() -> str:
+        """Generate HTML for job details modal"""
+        return """
+        <div class="modal fade" id="jobDetailsModal" tabindex="-1" aria-labelledby="jobDetailsModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="jobDetailsModalLabel">Job Details</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div id="jobDetailsContent">
+                                    <!-- Job details will be loaded here -->
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h6><i class="fas fa-chart-line"></i> Match Analysis</h6>
+                                    </div>
+                                    <div class="card-body" id="matchAnalysis">
+                                        <!-- Match analysis will be loaded here -->
+                                    </div>
+                                </div>
+                                
+                                <div class="card mt-3">
+                                    <div class="card-header">
+                                        <h6><i class="fas fa-lightbulb"></i> Application Tips</h6>
+                                    </div>
+                                    <div class="card-body" id="applicationTips">
+                                        <!-- Application tips will be loaded here -->
+                                    </div>
+                                </div>
+                                
+                                <div class="card mt-3">
+                                    <div class="card-header">
+                                        <h6><i class="fas fa-external-link-alt"></i> Company Research</h6>
+                                    </div>
+                                    <div class="card-body" id="companyResearch">
+                                        <!-- Company research links will be loaded here -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-outline-primary" id="saveJobFromModal">
+                            <i class="fas fa-bookmark"></i> Save Job
+                        </button>
+                        <button type="button" class="btn btn-primary" id="applyFromModal">
+                            <i class="fas fa-paper-plane"></i> Apply Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        """
+    
+    @staticmethod
+    def generate_javascript() -> str:
+        """Generate JavaScript for job recommendations functionality"""
+        return """
+        // Job Recommendations JavaScript
+        class JobRecommendationSystem {
+            constructor() {
+                this.apiBaseUrl = '/api';
+                this.selectedJobs = new Set();
+                this.currentJobs = [];
+                this.init();
+            }
+            
+            init() {
+                this.bindEvents();
+                this.loadDashboard();
+            }
+            
+            bindEvents() {
+                // Job search form
+                $('#jobSearchForm').on('submit', (e) => {
+                    e.preventDefault();
+                    this.searchJobs();
+                });
+                
+                // Quick apply buttons
+                $(document).on('click', '.quick-apply-btn', (e) => {
+                    const jobId = $(e.target).data('job-id');
+                    const jobTitle = $(e.target).data('job-title');
+                    this.quickApply(jobId, jobTitle);
+                });
+                
+                // Save job buttons
+                $(document).on('click', '.save-job-btn', (e) => {
+                    const jobId = $(e.target).data('job-id');
+                    const jobTitle = $(e.target).data('job-title');
+                    this.saveJob(jobId, jobTitle);
+                });
+                
+                // View details buttons
+                $(document).on('click', '.view-details-btn', (e) => {
+                    const jobId = $(e.target).data('job-id');
+                    this.showJobDetails(jobId);
+                });
+                
+                // Bulk apply
+                $('#submitBulkApply').on('click', () => {
+                    this.submitBulkApply();
+                });
+                
+                // Clear filters
+                $('#clearFilters').on('click', () => {
+                    $('#jobSearchForm')[0].reset();
+                });
+            }
+            
+            async searchJobs() {
+                const formData = this.getFormData();
+                const loadingBtn = $('#jobSearchForm button[type="submit"]');
+                
+                loadingBtn.html('<i class="fas fa-spinner fa-spin"></i> Searching...');
+                loadingBtn.prop('disabled', true);
+                
+                try {
+                    const response = await fetch(`${this.apiBaseUrl}/jobs/quick-search`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(formData)
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        this.currentJobs = [...result.jobs, ...result.internships];
+                        this.displayJobs(result);
+                        this.showSearchResults(result);
+                    } else {
+                        this.showError('Search failed: ' + result.error);
+                    }
+                } catch (error) {
+                    this.showError('Network error occurred');
+                } finally {
+                    loadingBtn.html('<i class="fas fa-search"></i> Search Jobs');
+                    loadingBtn.prop('disabled', false);
+                }
+            }
+            
+            getFormData() {
+                const skills = $('#userSkills').val().split(',').map(s => s.trim()).filter(s => s);
+                return {
+                    skills: skills,
+                    experience_level: $('#experienceLevel').val(),
+                    preferences: {
+                        job_type: $('#jobType').val(),
+                        location: $('#location').val(),
+                        salary_min: parseInt($('#minSalary').val()) || 0,
+                        remote_preference: $('#remotePreference').val() === 'yes'
+                    }
+                };
+            }
+            
+            displayJobs(result) {
+                const container = $('#jobResults');
+                if (!container.length) {
+                    // Create results container if it doesn't exist
+                    $('#jobSearchForm').parent().after(`
+                        <div class="row" id="jobResults">
+                            <div class="col-12">
+                                <h4><i class="fas fa-briefcase"></i> Job Recommendations</h4>
+                                <div class="row" id="jobCards"></div>
+                            </div>
+                        </div>
+                    `);
+                }
+                
+                const jobCards = $('#jobCards');
+                jobCards.empty();
+                
+                // Display jobs
+                result.jobs.forEach(job => {
+                    jobCards.append(this.createJobCard(job));
+                });
+                
+                // Display internships
+                if (result.internships.length > 0) {
+                    jobCards.append('<div class="col-12"><h5 class="mt-4"><i class="fas fa-graduation-cap"></i> Internship Opportunities</h5></div>');
+                    result.internships.forEach(internship => {
+                        jobCards.append(this.createJobCard(internship));
+                    });
+                }
+            }
+            
+            createJobCard(job) {
+                // This would use the HTML template generated by generate_job_card_html
+                // For demo purposes, return a simplified version
+                return `
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card h-100 job-card" data-job-id="${job.id}">
+                            <div class="card-body">
+                                <h5 class="card-title">${job.title}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">${job.company}</h6>
+                                <p class="card-text">${job.location}</p>
+                                <div class="btn-group w-100">
+                                    <button class="btn btn-primary btn-sm quick-apply-btn" 
+                                            data-job-id="${job.id}" data-job-title="${job.title}">
+                                        Quick Apply
+                                    </button>
+                                    <button class="btn btn-outline-primary btn-sm save-job-btn" 
+                                            data-job-id="${job.id}" data-job-title="${job.title}">
+                                        Save
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            async quickApply(jobId, jobTitle) {
+                try {
+                    const response = await fetch(`${this.apiBaseUrl}/applications/apply`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            job: this.findJobById(jobId),
+                            user_profile: this.getUserProfile(),
+                            type: 'quick'
+                        })
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        this.showSuccess(`Successfully applied to ${jobTitle}!`);
+                        this.loadDashboard(); // Refresh dashboard
+                    } else {
+                        this.showError('Application failed: ' + result.error);
+                    }
+                } catch (error) {
+                    this.showError('Network error occurred');
+                }
+            }
+            
+            async saveJob(jobId, jobTitle) {
+                try {
+                    const response = await fetch(`${this.apiBaseUrl}/jobs/save`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            job: this.findJobById(jobId),
+                            folder: 'favorites'
+                        })
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        this.showSuccess(`Saved ${jobTitle} for later!`);
+                    } else {
+                        this.showError('Save failed: ' + result.error);
+                    }
+                } catch (error) {
+                    this.showError('Network error occurred');
+                }
+            }
+            
+            async loadDashboard() {
+                try {
+                    const response = await fetch(`${this.apiBaseUrl}/applications/dashboard`);
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        this.updateDashboard(result);
+                    }
+                } catch (error) {
+                    console.error('Dashboard load error:', error);
+                }
+            }
+            
+            updateDashboard(data) {
+                if (data.stats) {
+                    $('#totalApplications').text(data.stats.total_applications || 0);
+                    $('#weekApplications').text(data.stats.recent_applications || 0);
+                    $('#pendingApplications').text(data.stats.pending_follow_ups || 0);
+                    $('#successRate').text(data.stats.success_rate + '%' || '0%');
+                }
+                
+                // Update applications list
+                if (data.recent_activity && data.recent_activity.length > 0) {
+                    const tbody = $('#applicationsList');
+                    tbody.empty();
+                    
+                    data.recent_activity.forEach(app => {
+                        tbody.append(`
+                            <tr>
+                                <td>${app.job_title}</td>
+                                <td>${app.company}</td>
+                                <td><span class="badge bg-primary">${app.status}</span></td>
+                                <td>${new Date(app.applied_date).toLocaleDateString()}</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-secondary">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        `);
+                    });
+                }
+                
+                // Update insights
+                if (data.insights && data.insights.length > 0) {
+                    const insightsList = $('#insightsList');
+                    insightsList.empty();
+                    
+                    data.insights.forEach(insight => {
+                        insightsList.append(`
+                            <li><i class="fas fa-lightbulb text-warning"></i> ${insight}</li>
+                        `);
+                    });
+                }
+            }
+            
+            findJobById(jobId) {
+                return this.currentJobs.find(job => job.id === jobId) || {};
+            }
+            
+            getUserProfile() {
+                return {
+                    name: 'User',
+                    skills: $('#userSkills').val().split(',').map(s => s.trim()),
+                    experience_level: $('#experienceLevel').val()
+                };
+            }
+            
+            showSuccess(message) {
+                this.showAlert(message, 'success');
+            }
+            
+            showError(message) {
+                this.showAlert(message, 'danger');
+            }
+            
+            showAlert(message, type) {
+                const alert = `
+                    <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+                        ${message}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                `;
+                $('#jobSearchForm').before(alert);
+                
+                // Auto-dismiss after 5 seconds
+                setTimeout(() => {
+                    $('.alert').fadeOut();
+                }, 5000);
+            }
+            
+            showSearchResults(result) {
+                const summary = `
+                    <div class="alert alert-info">
+                        <i class="fas fa-info-circle"></i>
+                        Found ${result.total_jobs} job matches and ${result.total_internships} internships 
+                        for <strong>${result.user_profile.primary_role}</strong>
+                    </div>
+                `;
+                $('#jobResults').prepend(summary);
+            }
+        }
+        
+        // Initialize when document is ready
+        $(document).ready(function() {
+            window.jobSystem = new JobRecommendationSystem();
+        });
+        """
+
+# Example usage
+def create_complete_webpage():
+    """Create a complete HTML page with job recommendations"""
+    interface = JobRecommendationWebInterface()
+    
+    html = f"""
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AI Job Matcher - Find Your Perfect Job</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <style>
+            .job-card {{ transition: transform 0.2s; }}
+            .job-card:hover {{ transform: translateY(-5px); }}
+            .match-reason {{ border-top: 1px solid #eee; padding-top: 10px; }}
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#"><i class="fas fa-rocket"></i> AI Job Matcher</a>
+            </div>
+        </nav>
+        
+        <div class="container mt-4">
+            {interface.generate_job_search_form()}
+            {interface.generate_application_dashboard()}
+        </div>
+        
+        {interface.generate_job_details_modal()}
+        {interface.generate_bulk_apply_modal()}
+        
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            {interface.generate_javascript()}
+        </script>
+    </body>
+    </html>
+    """
+    
+    return html
+
+if __name__ == "__main__":
+    # Generate complete webpage
+    webpage = create_complete_webpage()
+    
+    # Save to file
+    with open("job_recommendations_interface.html", "w", encoding="utf-8") as f:
+        f.write(webpage)
+    
+    print("✅ Complete web interface generated: job_recommendations_interface.html")
+    print("🌐 Features included:")
+    print("   • Job search form with filters")
+    print("   • Job recommendation cards")
+    print("   • Quick apply functionality")  
+    print("   • Application dashboard")
+    print("   • Bulk apply modal")
+    print("   • Job details modal")
+    print("   • Real-time updates")

@@ -1,0 +1,262 @@
+2025-08-15 23:25:34,721 - numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+2025-08-17 12:34:35,928 - auth - WARNING - Redis connection failed: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.. Using memory-based sessions.
+2025-08-17 12:34:37,779 - advanced_resume_parser - ERROR - Error loading models: Consistency check failed: file should be of size 898822 but has size 65241071 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 12:34:39,666 - advanced_resume_parser - ERROR - Error loading models: Consistency check failed: file should be of size 898822 but has size 66139893 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 12:34:39,673 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-08-17 12:34:39,674 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-17 12:34:44,037 - ai_job_matcher - ERROR - Error loading AI models: Consistency check failed: file should be of size 898822 but has size 67038715 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 12:34:44,059 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.9:5000
+2025-08-17 12:34:44,059 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-08-17 12:34:44,061 - werkzeug - INFO -  * Restarting with stat
+2025-08-17 12:34:55,178 - auth - WARNING - Redis connection failed: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.. Using memory-based sessions.
+2025-08-17 12:34:57,434 - advanced_resume_parser - ERROR - Error loading models: Consistency check failed: file should be of size 898822 but has size 67937537 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 12:34:59,031 - advanced_resume_parser - ERROR - Error loading models: Consistency check failed: file should be of size 898822 but has size 68836359 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 12:34:59,039 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-08-17 12:34:59,039 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-17 12:35:02,635 - ai_job_matcher - ERROR - Error loading AI models: Consistency check failed: file should be of size 898822 but has size 69735181 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 12:35:02,650 - werkzeug - WARNING -  * Debugger is active!
+2025-08-17 12:35:02,654 - werkzeug - INFO -  * Debugger PIN: 136-941-469
+2025-08-17 13:22:01,143 - auth - WARNING - Redis connection failed: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.. Using memory-based sessions.
+2025-08-17 13:22:06,444 - advanced_resume_parser - ERROR - Error loading models: Consistency check failed: file should be of size 898822 but has size 89509265 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 13:22:09,630 - advanced_resume_parser - ERROR - Error loading models: Consistency check failed: file should be of size 898822 but has size 90408087 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 13:22:09,645 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-08-17 13:22:09,645 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-17 13:22:21,442 - ai_job_matcher - ERROR - Error loading AI models: Consistency check failed: file should be of size 898822 but has size 91306909 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 13:22:21,474 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.51.250.201:5000
+2025-08-17 13:22:21,474 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-08-17 13:22:21,474 - werkzeug - INFO -  * Restarting with stat
+2025-08-17 13:22:37,117 - auth - WARNING - Redis connection failed: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.. Using memory-based sessions.
+2025-08-17 13:22:40,905 - advanced_resume_parser - ERROR - Error loading models: Consistency check failed: file should be of size 898822 but has size 92205731 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 13:22:44,231 - advanced_resume_parser - ERROR - Error loading models: Consistency check failed: file should be of size 898822 but has size 93104553 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 13:22:44,248 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-08-17 13:22:44,248 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-17 13:22:52,707 - ai_job_matcher - ERROR - Error loading AI models: Consistency check failed: file should be of size 898822 but has size 94003375 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 13:22:52,740 - werkzeug - WARNING -  * Debugger is active!
+2025-08-17 13:22:52,744 - werkzeug - INFO -  * Debugger PIN: 136-941-469
+2025-08-17 13:22:59,899 - werkzeug - INFO -  * Detected change in 'D:\\Gen AI\\projects\\ai-job-matcher\\job-machar\\backend\\app.py', reloading
+2025-08-17 13:23:01,045 - werkzeug - INFO -  * Restarting with stat
+2025-08-17 13:23:18,672 - auth - WARNING - Redis connection failed: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.. Using memory-based sessions.
+2025-08-17 13:25:48,655 - numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+2025-08-17 13:26:04,481 - advanced_resume_parser - ERROR - Error loading models: Consistency check failed: file should be of size 898822 but has size 95079005 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 13:26:05,123 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.51.250.201:5000
+2025-08-17 13:26:05,123 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-08-17 13:26:05,128 - werkzeug - INFO -  * Restarting with stat
+2025-08-17 13:26:14,231 - numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+2025-08-17 13:26:33,226 - advanced_resume_parser - ERROR - Error loading models: Consistency check failed: file should be of size 898822 but has size 95977827 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 13:26:33,824 - werkzeug - WARNING -  * Debugger is active!
+2025-08-17 13:26:33,846 - werkzeug - INFO -  * Debugger PIN: 136-941-469
+2025-08-17 13:27:11,184 - werkzeug - INFO -  * Detected change in 'D:\\Gen AI\\projects\\ai-job-matcher\\job-machar\\backend\\lightweight_app.py', reloading
+2025-08-17 13:27:12,172 - werkzeug - INFO -  * Restarting with stat
+2025-08-17 13:27:20,605 - numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+2025-08-17 13:27:29,452 - advanced_resume_parser - ERROR - Error loading models: Consistency check failed: file should be of size 898822 but has size 96876649 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 13:27:29,681 - werkzeug - WARNING -  * Debugger is active!
+2025-08-17 13:27:29,693 - werkzeug - INFO -  * Debugger PIN: 136-941-469
+2025-08-17 13:29:57,888 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 13:29:57] "GET /jobs HTTP/1.1" 200 -
+2025-08-17 13:29:58,137 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 13:29:58] "GET /jobs HTTP/1.1" 200 -
+2025-08-17 13:39:57,517 - auth - WARNING - Redis connection failed: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.. Using memory-based sessions.
+2025-08-17 13:40:02,120 - advanced_resume_parser - ERROR - Error loading models: Consistency check failed: file should be of size 898822 but has size 97775471 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 13:40:05,992 - advanced_resume_parser - ERROR - Error loading models: Consistency check failed: file should be of size 898822 but has size 98674293 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 13:40:06,039 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-08-17 13:40:06,039 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-17 13:40:11,959 - ai_job_matcher - ERROR - Error loading AI models: Consistency check failed: file should be of size 898822 but has size 99573115 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 13:40:12,081 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.51.250.201:5000
+2025-08-17 13:40:12,089 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-08-17 13:40:12,089 - werkzeug - INFO -  * Restarting with stat
+2025-08-17 13:40:31,078 - auth - WARNING - Redis connection failed: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.. Using memory-based sessions.
+2025-08-17 13:40:36,162 - advanced_resume_parser - ERROR - Error loading models: Consistency check failed: file should be of size 898822 but has size 100471937 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 13:40:39,960 - advanced_resume_parser - ERROR - Error loading models: Consistency check failed: file should be of size 898822 but has size 101370759 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 13:40:40,006 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-08-17 13:40:40,009 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-17 13:40:56,394 - ai_job_matcher - ERROR - Error loading AI models: Consistency check failed: file should be of size 898822 but has size 102269581 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 13:40:56,484 - werkzeug - WARNING -  * Debugger is active!
+2025-08-17 13:40:56,504 - werkzeug - INFO -  * Debugger PIN: 136-941-469
+2025-08-17 13:43:06,009 - numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+2025-08-17 13:43:12,125 - advanced_resume_parser - ERROR - Error loading models: Consistency check failed: file should be of size 898822 but has size 103168403 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 13:43:12,384 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.51.250.201:5000
+2025-08-17 13:43:12,384 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-08-17 13:43:12,386 - werkzeug - INFO -  * Restarting with stat
+2025-08-17 13:43:20,196 - numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+2025-08-17 13:43:26,609 - advanced_resume_parser - ERROR - Error loading models: Consistency check failed: file should be of size 898822 but has size 104067225 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 13:43:26,785 - werkzeug - WARNING -  * Debugger is active!
+2025-08-17 13:43:26,791 - werkzeug - INFO -  * Debugger PIN: 136-941-469
+2025-08-17 13:47:53,541 - numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+2025-08-17 13:48:04,836 - advanced_resume_parser - ERROR - Error loading models: Consistency check failed: file should be of size 898822 but has size 104966047 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 13:48:04,859 - __main__ - INFO - Advanced Resume Parser initialized successfully
+2025-08-17 13:48:05,437 - __main__ - INFO - Job API Client initialized successfully
+2025-08-17 13:48:05,504 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.51.250.201:5000
+2025-08-17 13:48:05,504 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-08-17 13:48:05,513 - werkzeug - INFO -  * Restarting with stat
+2025-08-17 13:48:15,208 - numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+2025-08-17 13:48:29,921 - advanced_resume_parser - ERROR - Error loading models: Consistency check failed: file should be of size 898822 but has size 105864869 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 13:48:29,954 - __main__ - INFO - Advanced Resume Parser initialized successfully
+2025-08-17 13:48:30,639 - __main__ - INFO - Job API Client initialized successfully
+2025-08-17 13:48:30,696 - werkzeug - WARNING -  * Debugger is active!
+2025-08-17 13:48:30,721 - werkzeug - INFO -  * Debugger PIN: 136-941-469
+2025-08-17 13:52:25,607 - __main__ - INFO - AI resume analysis completed
+2025-08-17 13:52:25,607 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 13:52:25] "POST /upload-resume HTTP/1.1" 200 -
+2025-08-17 13:52:25,648 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 13:52:25] "OPTIONS /get-recommendations HTTP/1.1" 200 -
+2025-08-17 13:52:25,973 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 13:52:25] "[33mOPTIONS /skill-gap-analysis HTTP/1.1[0m" 404 -
+2025-08-17 13:52:25,975 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 13:52:25] "[33mOPTIONS /career-guidance HTTP/1.1[0m" 404 -
+2025-08-17 13:52:25,975 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 13:52:25] "OPTIONS /get-recommendations HTTP/1.1" 200 -
+2025-08-17 13:52:25,985 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 13:52:25] "[33mOPTIONS /skill-gap-analysis HTTP/1.1[0m" 404 -
+2025-08-17 13:52:25,994 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 13:52:25] "[33mOPTIONS /career-guidance HTTP/1.1[0m" 404 -
+2025-08-17 13:52:25,998 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 13:52:25] "POST /get-recommendations HTTP/1.1" 200 -
+2025-08-17 13:52:26,306 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 13:52:26] "[33mGET /application-history HTTP/1.1[0m" 404 -
+2025-08-17 13:52:26,314 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 13:52:26] "POST /get-recommendations HTTP/1.1" 200 -
+2025-08-17 13:52:26,617 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 13:52:26] "[33mGET /application-history HTTP/1.1[0m" 404 -
+2025-08-17 16:46:17,432 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 16:46:17] "[33mPOST /get-recommendations HTTP/1.1[0m" 404 -
+2025-08-17 16:46:52,542 - werkzeug - INFO -  * Detected change in 'D:\\Gen AI\\projects\\ai-job-matcher\\job-machar\\backend\\simple_api.py', reloading
+2025-08-17 16:46:53,393 - werkzeug - INFO -  * Restarting with stat
+2025-08-17 16:47:02,716 - numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+2025-08-17 16:47:07,182 - advanced_resume_parser - ERROR - Error loading models: Consistency check failed: file should be of size 898822 but has size 106763691 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 16:47:07,187 - __main__ - INFO - Advanced Resume Parser initialized successfully
+2025-08-17 16:47:07,337 - __main__ - INFO - Job API Client initialized successfully
+2025-08-17 16:47:07,350 - werkzeug - WARNING -  * Debugger is active!
+2025-08-17 16:47:07,353 - werkzeug - INFO -  * Debugger PIN: 136-941-469
+2025-08-17 16:47:34,197 - werkzeug - INFO -  * Detected change in 'D:\\Gen AI\\projects\\ai-job-matcher\\job-machar\\backend\\simple_api.py', reloading
+2025-08-17 16:47:34,946 - werkzeug - INFO -  * Restarting with stat
+2025-08-17 16:47:40,341 - numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+2025-08-17 16:47:43,749 - advanced_resume_parser - ERROR - Error loading models: Consistency check failed: file should be of size 898822 but has size 107662513 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 16:47:43,755 - __main__ - INFO - Advanced Resume Parser initialized successfully
+2025-08-17 16:47:43,876 - __main__ - INFO - Job API Client initialized successfully
+2025-08-17 16:47:43,884 - werkzeug - WARNING -  * Debugger is active!
+2025-08-17 16:47:43,888 - werkzeug - INFO -  * Debugger PIN: 136-941-469
+2025-08-17 16:48:36,301 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 16:48:36] "GET /health HTTP/1.1" 200 -
+2025-08-17 16:48:38,355 - advanced_resume_parser - WARNING - pdfplumber extraction failed: No /Root object! - Is this really a PDF?
+2025-08-17 16:48:38,407 - __main__ - INFO - AI resume analysis completed
+2025-08-17 16:48:38,407 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 16:48:38] "POST /upload-resume HTTP/1.1" 200 -
+2025-08-17 16:48:40,449 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 16:48:40] "GET /jobs HTTP/1.1" 200 -
+2025-08-17 16:48:42,482 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 16:48:42] "POST /get-recommendations HTTP/1.1" 200 -
+2025-08-17 16:48:44,515 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 16:48:44] "POST /job-match HTTP/1.1" 200 -
+2025-08-17 16:48:46,532 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 16:48:46] "[33mPOST /skill-gap-analysis HTTP/1.1[0m" 404 -
+2025-08-17 16:48:48,561 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 16:48:48] "[33mPOST /career-guidance HTTP/1.1[0m" 404 -
+2025-08-17 16:48:50,599 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 16:48:50] "[33mGET /application-history HTTP/1.1[0m" 404 -
+2025-08-17 16:48:53,112 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 16:48:53] "GET /health HTTP/1.1" 200 -
+2025-08-17 16:48:55,131 - advanced_resume_parser - WARNING - pdfplumber extraction failed: No /Root object! - Is this really a PDF?
+2025-08-17 16:48:55,134 - __main__ - INFO - AI resume analysis completed
+2025-08-17 16:48:55,135 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 16:48:55] "POST /upload-resume HTTP/1.1" 200 -
+2025-08-17 16:48:57,176 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 16:48:57] "GET /jobs HTTP/1.1" 200 -
+2025-08-17 16:48:59,210 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 16:48:59] "POST /get-recommendations HTTP/1.1" 200 -
+2025-08-17 16:49:01,249 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 16:49:01] "POST /job-match HTTP/1.1" 200 -
+2025-08-17 16:49:03,280 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 16:49:03] "[33mPOST /skill-gap-analysis HTTP/1.1[0m" 404 -
+2025-08-17 16:49:05,313 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 16:49:05] "[33mPOST /career-guidance HTTP/1.1[0m" 404 -
+2025-08-17 16:49:07,348 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 16:49:07] "[33mGET /application-history HTTP/1.1[0m" 404 -
+2025-08-17 16:51:50,715 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 16:51:50] "GET /health HTTP/1.1" 200 -
+2025-08-17 16:51:52,750 - advanced_resume_parser - WARNING - pdfplumber extraction failed: No /Root object! - Is this really a PDF?
+2025-08-17 16:51:52,752 - __main__ - INFO - AI resume analysis completed
+2025-08-17 16:51:52,753 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 16:51:52] "POST /upload-resume HTTP/1.1" 200 -
+2025-08-17 16:51:54,788 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 16:51:54] "GET /jobs HTTP/1.1" 200 -
+2025-08-17 16:51:56,815 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 16:51:56] "POST /get-recommendations HTTP/1.1" 200 -
+2025-08-17 16:51:58,833 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 16:51:58] "POST /job-match HTTP/1.1" 200 -
+2025-08-17 16:52:00,877 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 16:52:00] "[33mPOST /skill-gap-analysis HTTP/1.1[0m" 404 -
+2025-08-17 16:52:02,915 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 16:52:02] "[33mPOST /career-guidance HTTP/1.1[0m" 404 -
+2025-08-17 16:52:04,931 - werkzeug - INFO - 127.0.0.1 - - [17/Aug/2025 16:52:04] "[33mGET /application-history HTTP/1.1[0m" 404 -
+2025-08-17 17:08:19,990 - auth - WARNING - Redis connection failed: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.. Using memory-based sessions.
+2025-08-17 17:08:23,279 - advanced_resume_parser - ERROR - Error loading models: Consistency check failed: file should be of size 898822 but has size 133728351 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 17:08:25,963 - advanced_resume_parser - ERROR - Error loading models: Consistency check failed: file should be of size 898822 but has size 134627173 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 17:08:26,003 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-08-17 17:08:26,004 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-17 17:08:30,176 - ai_job_matcher - ERROR - Error loading AI models: Consistency check failed: file should be of size 898822 but has size 135525995 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 17:08:30,261 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.11:5000
+2025-08-17 17:08:30,262 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-08-17 17:08:30,266 - werkzeug - INFO -  * Restarting with stat
+2025-08-17 17:08:44,214 - auth - WARNING - Redis connection failed: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.. Using memory-based sessions.
+2025-08-17 17:08:46,351 - advanced_resume_parser - ERROR - Error loading models: Consistency check failed: file should be of size 898822 but has size 136424817 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 17:08:48,037 - auth - WARNING - Redis connection failed: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.. Using memory-based sessions.
+2025-08-17 17:08:48,083 - advanced_resume_parser - ERROR - Error loading models: Consistency check failed: file should be of size 898822 but has size 137323639 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 17:08:48,093 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-08-17 17:08:48,093 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-17 17:08:49,868 - advanced_resume_parser - ERROR - Error loading models: Consistency check failed: file should be of size 898822 but has size 138222461 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 17:08:51,528 - advanced_resume_parser - ERROR - Error loading models: Consistency check failed: file should be of size 898822 but has size 139121283 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 17:08:51,537 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-08-17 17:08:51,537 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-17 17:08:52,490 - ai_job_matcher - ERROR - Error loading AI models: Consistency check failed: file should be of size 898822 but has size 140020105 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 17:08:52,513 - werkzeug - WARNING -  * Debugger is active!
+2025-08-17 17:08:52,516 - werkzeug - INFO -  * Debugger PIN: 136-941-469
+2025-08-17 17:08:55,112 - ai_job_matcher - ERROR - Error loading AI models: Consistency check failed: file should be of size 898822 but has size 140918927 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 17:08:55,145 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.11:5000
+2025-08-17 17:08:55,145 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-08-17 17:08:55,147 - werkzeug - INFO -  * Restarting with stat
+2025-08-17 17:09:07,155 - auth - WARNING - Redis connection failed: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.. Using memory-based sessions.
+2025-08-17 17:09:09,037 - advanced_resume_parser - ERROR - Error loading models: Consistency check failed: file should be of size 898822 but has size 141817749 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 17:09:10,615 - advanced_resume_parser - ERROR - Error loading models: Consistency check failed: file should be of size 898822 but has size 142716571 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 17:09:10,622 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2025-08-17 17:09:10,623 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-08-17 17:09:14,107 - ai_job_matcher - ERROR - Error loading AI models: Consistency check failed: file should be of size 898822 but has size 143615393 (vocab.json).
+This is usually due to network issues while downloading the file. Please retry with `force_download=True`.
+2025-08-17 17:09:14,127 - werkzeug - WARNING -  * Debugger is active!
+2025-08-17 17:09:14,133 - werkzeug - INFO -  * Debugger PIN: 136-941-469
+2025-08-17 17:19:40,860 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.11:5000
+2025-08-17 17:19:40,860 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-08-17 17:20:38,249 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.11:5001
+2025-08-17 17:20:38,249 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-08-17 17:23:09,211 - werkzeug - INFO -  * Detected change in 'D:\\Gen AI\\projects\\ai-job-matcher\\job-machar\\backend\\app.py', reloading
+2025-08-17 17:23:10,990 - werkzeug - INFO -  * Restarting with stat

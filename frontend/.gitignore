@@ -72,3 +72,5 @@ ENV/
 
 # Upload files
 uploads/
+
+.vercel

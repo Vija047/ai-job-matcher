@@ -1,14 +1,14 @@
 {
     "framework": "nextjs",
     "functions": {
-        "api/app.py": {
+        "api/index.py": {
             "runtime": "python3.9"
         }
     },
     "rewrites": [
         {
             "source": "/api/(.*)",
-            "destination": "/api/app.py"
+            "destination": "/api/index.py"
         }
     ]
 }

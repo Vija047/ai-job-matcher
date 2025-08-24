@@ -2984,3 +2984,50 @@ This is usually due to network issues while downloading the file. Please retry w
 2025-08-24 11:35:31,702 - werkzeug - INFO - 127.0.0.1 - - [24/Aug/2025 11:35:31] "POST /career-guidance HTTP/1.1" 200 -
 2025-08-24 11:35:33,000 - werkzeug - INFO - 127.0.0.1 - - [24/Aug/2025 11:35:33] "POST /get-recommendations HTTP/1.1" 200 -
 2025-08-24 11:35:33,001 - werkzeug - INFO - 127.0.0.1 - - [24/Aug/2025 11:35:33] "POST /get-recommendations HTTP/1.1" 200 -
+2025-08-24 11:43:56,918 - __main__ - INFO - Processing resume: demo_resume.txt
+2025-08-24 11:44:01,254 - enhanced_resume_parser - ERROR - Contact extraction error: unknown extension ?\\ at position 3
+2025-08-24 11:44:01,256 - __main__ - INFO - ✅ Resume processed: 37 skills found, role: Junior Cloud Engineer
+2025-08-24 11:44:01,257 - werkzeug - INFO - 127.0.0.1 - - [24/Aug/2025 11:44:01] "POST /upload-resume HTTP/1.1" 200 -
+2025-08-24 11:44:03,109 - werkzeug - INFO - 127.0.0.1 - - [24/Aug/2025 11:44:03] "OPTIONS /get-recommendations HTTP/1.1" 200 -
+2025-08-24 11:44:03,110 - werkzeug - INFO - 127.0.0.1 - - [24/Aug/2025 11:44:03] "OPTIONS /skill-gap-analysis HTTP/1.1" 200 -
+2025-08-24 11:44:03,116 - werkzeug - INFO - 127.0.0.1 - - [24/Aug/2025 11:44:03] "OPTIONS /career-guidance HTTP/1.1" 200 -
+2025-08-24 11:44:03,120 - werkzeug - INFO - 127.0.0.1 - - [24/Aug/2025 11:44:03] "OPTIONS /get-recommendations HTTP/1.1" 200 -
+2025-08-24 11:44:03,124 - werkzeug - INFO - 127.0.0.1 - - [24/Aug/2025 11:44:03] "OPTIONS /skill-gap-analysis HTTP/1.1" 200 -
+2025-08-24 11:44:03,128 - werkzeug - INFO - 127.0.0.1 - - [24/Aug/2025 11:44:03] "GET /application-history HTTP/1.1" 200 -
+2025-08-24 11:44:03,420 - werkzeug - INFO - 127.0.0.1 - - [24/Aug/2025 11:44:03] "OPTIONS /career-guidance HTTP/1.1" 200 -
+2025-08-24 11:44:03,425 - werkzeug - INFO - 127.0.0.1 - - [24/Aug/2025 11:44:03] "POST /get-recommendations HTTP/1.1" 200 -
+2025-08-24 11:44:03,428 - werkzeug - INFO - 127.0.0.1 - - [24/Aug/2025 11:44:03] "POST /skill-gap-analysis HTTP/1.1" 200 -
+2025-08-24 11:44:03,435 - werkzeug - INFO - 127.0.0.1 - - [24/Aug/2025 11:44:03] "POST /career-guidance HTTP/1.1" 200 -
+2025-08-24 11:44:03,445 - werkzeug - INFO - 127.0.0.1 - - [24/Aug/2025 11:44:03] "POST /skill-gap-analysis HTTP/1.1" 200 -
+2025-08-24 11:44:03,451 - werkzeug - INFO - 127.0.0.1 - - [24/Aug/2025 11:44:03] "POST /get-recommendations HTTP/1.1" 200 -
+2025-08-24 11:44:03,736 - werkzeug - INFO - 127.0.0.1 - - [24/Aug/2025 11:44:03] "GET /application-history HTTP/1.1" 200 -
+2025-08-24 11:44:03,741 - werkzeug - INFO - 127.0.0.1 - - [24/Aug/2025 11:44:03] "POST /career-guidance HTTP/1.1" 200 -
+2025-08-24 11:44:17,803 - __main__ - WARNING - Could not fetch jobs for Software Engineer: search_wellfound_linkedin_jobs() got an unexpected keyword argument 'max_results'
+2025-08-24 11:44:17,804 - __main__ - WARNING - Could not fetch jobs for Data Scientist: search_wellfound_linkedin_jobs() got an unexpected keyword argument 'max_results'
+2025-08-24 11:44:17,804 - __main__ - WARNING - Could not fetch jobs for Frontend Developer: search_wellfound_linkedin_jobs() got an unexpected keyword argument 'max_results'
+2025-08-24 11:44:17,805 - __main__ - WARNING - Could not fetch jobs for Backend Developer: search_wellfound_linkedin_jobs() got an unexpected keyword argument 'max_results'
+2025-08-24 11:44:17,805 - __main__ - WARNING - Could not fetch jobs for DevOps Engineer: search_wellfound_linkedin_jobs() got an unexpected keyword argument 'max_results'
+2025-08-24 11:44:17,807 - werkzeug - INFO - 127.0.0.1 - - [24/Aug/2025 11:44:17] "GET /jobs HTTP/1.1" 200 -
+2025-08-24 11:44:18,067 - __main__ - WARNING - Could not fetch jobs for Software Engineer: search_wellfound_linkedin_jobs() got an unexpected keyword argument 'max_results'
+2025-08-24 11:44:18,068 - __main__ - WARNING - Could not fetch jobs for Data Scientist: search_wellfound_linkedin_jobs() got an unexpected keyword argument 'max_results'
+2025-08-24 11:44:18,068 - __main__ - WARNING - Could not fetch jobs for Frontend Developer: search_wellfound_linkedin_jobs() got an unexpected keyword argument 'max_results'
+2025-08-24 11:44:18,069 - __main__ - WARNING - Could not fetch jobs for Backend Developer: search_wellfound_linkedin_jobs() got an unexpected keyword argument 'max_results'
+2025-08-24 11:44:18,069 - __main__ - WARNING - Could not fetch jobs for DevOps Engineer: search_wellfound_linkedin_jobs() got an unexpected keyword argument 'max_results'
+2025-08-24 11:44:18,071 - werkzeug - INFO - 127.0.0.1 - - [24/Aug/2025 11:44:18] "GET /jobs HTTP/1.1" 200 -
+2025-08-24 17:14:37,519 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.15:5000
+2025-08-24 17:14:37,519 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-08-24 17:15:54,003 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.15:5000
+2025-08-24 17:15:54,003 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-08-24 17:16:09,500 - werkzeug - INFO - 127.0.0.1 - - [24/Aug/2025 17:16:09] "GET /?id=98c65e8a-3a7f-4a8f-becc-d9ae55133d97&vscodeBrowserReqId=1756035969181 HTTP/1.1" 200 -
+2025-08-24 17:16:47,510 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.15:5000
+2025-08-24 17:16:47,510 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-08-24 17:17:01,365 - werkzeug - INFO - 127.0.0.1 - - [24/Aug/2025 17:17:01] "GET /?id=98c65e8a-3a7f-4a8f-becc-d9ae55133d97&vscodeBrowserReqId=1756036021040 HTTP/1.1" 200 -

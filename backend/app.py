@@ -237,6 +237,28 @@ def get_score_recommendations(score, breakdown):
     
     return recommendations
 
+@app.route('/', methods=['GET'])
+def root():
+    """Root endpoint - API information"""
+    return jsonify({
+        'name': 'AI Job Matcher API',
+        'version': '1.0.0',
+        'status': 'running',
+        'timestamp': datetime.now().isoformat(),
+        'endpoints': {
+            'health': '/health',
+            'jobs': '/jobs',
+            'upload_resume': '/upload-resume',
+            'job_match': '/job-match',
+            'search_jobs': '/search-jobs',
+            'match_jobs': '/match-jobs',
+            'recommend_jobs': '/recommend-jobs',
+            'stats': '/stats',
+            'realtime_jobs': '/realtime-jobs'
+        },
+        'description': 'Enhanced AI Job Matcher with real-time job data and advanced NLP'
+    })
+
 @app.route('/health', methods=['GET'])
 def health():
     """Health check endpoint"""
@@ -2381,7 +2403,27 @@ def export_analysis(analysis_id):
 # Error handlers
 @app.errorhandler(404)
 def not_found(error):
-    return jsonify({'error': 'Endpoint not found'}), 404
+    """Enhanced 404 error handler with available endpoints"""
+    available_endpoints = [
+        {'method': 'GET', 'path': '/', 'description': 'API information'},
+        {'method': 'GET', 'path': '/health', 'description': 'Health check'},
+        {'method': 'GET', 'path': '/jobs', 'description': 'Get sample jobs'},
+        {'method': 'GET', 'path': '/stats', 'description': 'Get API statistics'},
+        {'method': 'POST', 'path': '/upload-resume', 'description': 'Upload and analyze resume'},
+        {'method': 'POST', 'path': '/job-match', 'description': 'Match job with resume'},
+        {'method': 'POST', 'path': '/search-jobs', 'description': 'Search for jobs'},
+        {'method': 'POST', 'path': '/match-jobs', 'description': 'Match multiple jobs'},
+        {'method': 'POST', 'path': '/recommend-jobs', 'description': 'Get job recommendations'},
+        {'method': 'POST', 'path': '/realtime-jobs', 'description': 'Get real-time jobs'},
+        {'method': 'GET', 'path': '/analysis/<id>', 'description': 'Get analysis by ID'}
+    ]
+    
+    return jsonify({
+        'error': 'Endpoint not found',
+        'message': f'The requested URL "{request.url}" was not found on this server.',
+        'available_endpoints': available_endpoints,
+        'suggestion': 'Try accessing the root endpoint "/" for API information'
+    }), 404
 
 @app.errorhandler(413)
 def file_too_large(error):

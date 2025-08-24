@@ -1,8 +1,13 @@
-# Production AI Job Matcher Backend
+# 🔧 AI Job Matcher Backend
 
 ## 🚀 Overview
 
-A fully functional, production-ready backend that removes all mock data and uses real-time job listings from LinkedIn, Y Combinator's Work at a Startup, and other major platforms via their official APIs or compliant data providers. The system accepts a user's resume (PDF), parses it using advanced AI models, extracts skills/experience using Hugging Face models, matches them to live job postings, and returns ranked recommendations with detailed explanations.
+A production-ready Flask backend that powers the AI Job Matcher platform. This backend uses advanced AI models for resume parsing, real-time job data from multiple APIs, and intelligent matching algorithms to provide personalized job recommendations.
+
+🌐 **Live API**: [Backend Documentation](https://ai-job-matcher-backend.vercel.app/docs)  
+📊 **Health Check**: [API Status](https://ai-job-matcher-backend.vercel.app/health)
+
+The system accepts PDF resumes, analyzes them using advanced AI models (BERT, BART, spaCy), fetches real-time job listings from LinkedIn, Adzuna, and other platforms, and returns ranked recommendations with detailed explanations.
 
 ## ✨ Features
 
@@ -20,11 +25,86 @@ A fully functional, production-ready backend that removes all mock data and uses
 - **Skill Extraction**: Multi-category skill analysis with proficiency assessment
 - **Career Insights**: AI-powered career recommendations and gap analysis
 
-### Data Sources
-- **Adzuna API**: Global job search with 300 requests/hour
-- **JSearch (RapidAPI)**: Comprehensive job listings with 100 requests/hour
-- **Remotive**: Remote job positions (no API key required)
-- **FindWork**: Tech job listings (no API key required)
+## 🧠 How the Backend Works
+
+### 1. Resume Processing Pipeline
+```
+PDF Upload → Text Extraction → AI Analysis → Skill Categorization → Storage
+```
+
+**Step 1: PDF Text Extraction**
+- Uses PyPDF2 and pdfplumber for robust PDF parsing
+- Handles various PDF formats and encodings
+- Extracts text while preserving structure
+
+**Step 2: AI-Powered Analysis**
+- **BERT NER**: Extracts personal information (name, email, phone)
+- **spaCy NLP**: Processes natural language and identifies entities
+- **BART Classification**: Zero-shot classification for experience levels
+- **Custom Patterns**: Regex patterns for structured data extraction
+
+**Step 3: Skill Extraction & Categorization**
+```python
+# Example skill categorization
+skills_categories = {
+    'programming': ['Python', 'JavaScript', 'Java', 'C++'],
+    'frameworks': ['React', 'Django', 'Express', 'Spring'],
+    'databases': ['MySQL', 'PostgreSQL', 'MongoDB'],
+    'cloud': ['AWS', 'Azure', 'GCP', 'Docker'],
+    'soft_skills': ['Leadership', 'Communication', 'Problem Solving']
+}
+```
+
+### 2. Job Data Integration
+```
+API Calls → Data Normalization → Caching → Real-time Access
+```
+
+**Supported Job APIs:**
+- **Adzuna API**: Global job search with salary data (300 req/hour)
+- **JSearch (RapidAPI)**: Comprehensive listings (100 req/hour)
+- **Remotive**: Remote job positions (unlimited)
+- **FindWork**: Tech-focused opportunities (unlimited)
+
+**Data Normalization Process:**
+1. Fetch jobs from multiple APIs concurrently
+2. Standardize job schema across different sources
+3. Enhance with additional metadata
+4. Cache for performance optimization
+
+### 3. AI Matching Algorithm
+```
+Resume Analysis + Job Requirements → Multi-Factor Scoring → Ranked Results
+```
+
+**Scoring Components:**
+```python
+def calculate_job_match(resume_data, job_data):
+    skills_score = calculate_skills_match(resume_data.skills, job_data.requirements)
+    experience_score = calculate_experience_match(resume_data.experience, job_data.experience_level)
+    semantic_score = calculate_semantic_similarity(resume_data.summary, job_data.description)
+    
+    # Weighted scoring
+    final_score = (skills_score * 0.4) + (experience_score * 0.3) + (semantic_score * 0.3)
+    return final_score
+```
+
+**Semantic Similarity Engine:**
+- Uses Sentence Transformers (all-MiniLM-L6-v2)
+- Generates embeddings for resume content and job descriptions
+- Calculates cosine similarity for semantic matching
+
+### 4. Authentication & Security
+```
+JWT Token Generation → Request Validation → Rate Limiting → Response
+```
+
+**Security Features:**
+- **JWT Authentication**: Stateless token-based auth
+- **Rate Limiting**: Prevents API abuse
+- **CORS Protection**: Secure cross-origin requests
+- **Input Validation**: Sanitizes all user inputs
+- **Error Handling**: Secure error responses without data leakage
 
 ## 🛠️ Installation & Setup
 

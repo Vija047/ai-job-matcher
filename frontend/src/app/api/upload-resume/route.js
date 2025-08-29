@@ -1,29 +1,18 @@
+import { NextResponse } from 'next/server'
+
 export async function POST(request) {
   try {
-    const formData = await request.formData();
-    const file = formData.get('resume');
-    
-    if (!file) {
-      return Response.json({ error: "No resume file provided" }, { status: 400 });
+    // Accept multipart/form-data or JSON (demo)
+    const contentType = request.headers.get('content-type') || ''
+    if (contentType.includes('application/json')) {
+      const data = await request.json()
+      return NextResponse.json({ success: true, message: 'Received JSON resume data', data })
     }
 
-    // Simple file processing for demo
-    const analysis_id = `resume_${Date.now()}`;
-    
-    // Mock analysis results
-    const mockSkills = ["JavaScript", "React", "Node.js", "Python", "SQL"];
-    const mockExperience = 3;
-    
-    return Response.json({
-      id: analysis_id,
-      skills: mockSkills,
-      experience: mockExperience,
-      filename: file.name,
-      message: "Resume uploaded and analyzed successfully"
-    });
-    
-  } catch (error) {
-    console.error('Resume upload error:', error);
-    return Response.json({ error: "Failed to process resume" }, { status: 500 });
+    // For multipart, return a simple acknowledgment (Vercel serverless edge has limitations)
+    return NextResponse.json({ success: true, message: 'Resume upload endpoint (use backend for full parsing)' })
+  } catch (err) {
+    console.error('upload-resume error', err)
+    return NextResponse.json({ error: String(err) }, { status: 500 })
   }
 }

@@ -1,27 +1,16 @@
+import { NextResponse } from 'next/server'
+
 export async function POST(request) {
   try {
-    const data = await request.json();
-    const { resume_id, job_description = '' } = data;
-    
-    if (!resume_id) {
-      return Response.json({ error: "Invalid resume ID" }, { status: 400 });
-    }
-    
-    // Simple match scoring based on keywords
-    const resumeSkills = ["javascript", "react", "node.js", "python", "sql"];
-    const jobText = job_description.toLowerCase();
-    
-    const matches = resumeSkills.filter(skill => jobText.includes(skill)).length;
-    const matchScore = (matches / resumeSkills.length) * 100;
-    
-    return Response.json({
-      match_score: Math.round(matchScore * 10) / 10,
-      matched_skills: resumeSkills.filter(skill => jobText.includes(skill)),
-      total_skills: resumeSkills.length
-    });
-    
-  } catch (error) {
-    console.error('Match score error:', error);
-    return Response.json({ error: "Failed to calculate match score" }, { status: 500 });
+    const { skills = [], job } = await request.json()
+    const text = `${job?.title || ''} ${job?.description || ''} ${job?.requirements || ''}`.toLowerCase()
+    let matches = 0
+    for (const s of skills) if (text.includes(s.toLowerCase())) matches++
+    const score = skills.length ? Math.round((matches / skills.length) * 100) : 50
+
+    return NextResponse.json({ success: true, match_score: score })
+  } catch (err) {
+    console.error('match-score error', err)
+    return NextResponse.json({ error: String(err) }, { status: 500 })
   }
 }
